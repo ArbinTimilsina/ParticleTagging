@@ -1,4 +1,5 @@
 .DS_Store
 .ipynb_checkpoints/
 larcv2/
+PlottingTools.pyc
 __pycache__/

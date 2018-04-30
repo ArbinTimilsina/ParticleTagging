@@ -11,6 +11,8 @@ cd ParticleTagging
 conda update -n base conda
 conda create --name envParticle python=2.7
 conda activate envParticle
+```
+```
 pip install --upgrade pip
 pip install -r Requirements/Requirements.txt
 ```
@@ -45,6 +47,19 @@ wget http://www.stanford.edu/~kterao/public_data/v0.1.0/2d/classification/five_p
 wget http://www.stanford.edu/~kterao/public_data/v0.1.0/2d/classification/five_particles/test_40k.root -O InputFiles/classification_test_40k.root
 wget http://www.stanford.edu/~kterao/public_data/v0.1.0/2d/segmentation/multipvtx/train_15k.root -O InputFiles/segmentation_train_15k.root
 wget http://www.stanford.edu/~kterao/public_data/v0.1.0/2d/segmentation/multipvtx/test_10k.root -O InputFiles/segmentation_test_10k.root
+```
+
+## If running remotely
+### Install emacs
+```
+sudo apt install emacs
+```
+
+###  Run the Jupyter notebook: First generate config file and then change the IP address config setting
+```
+jupyter notebook --generate-config
+sed -ie "s/#c.NotebookApp.ip = 'localhost'/#c.NotebookApp.ip = '*'/g" ~/.jupyter/jupyter_notebook_config.py
+jupyter notebook --ip=0.0.0.0 --no-browser
 ```
 
 ### Remove conda environment (if desired)
