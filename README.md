@@ -17,6 +17,20 @@ pip install --upgrade pip
 pip install -r Requirements/Requirements.txt
 ```
 
+### Setup ROOT, if not already installed
+```
+wget https://root.cern.ch/download/root_v6.12.04.source.tar.gz
+tar -zxf root_v6.12.04.source.tar.gz
+rm -rf root_v6.12.04.source.tar.gz 
+mkdir root_build
+cd root_build
+sudo apt-get install libxpm-dev
+cmake ../root-6.12.04/
+cmake --build . -- -j16
+cd ..
+. root_build/bin/thisroot.sh
+```
+
 ### Setup LArCV
 ```
 git clone https://github.com/DeepLearnPhysics/larcv2
@@ -33,6 +47,7 @@ KERAS_BACKEND=tensorflow python -c "from keras import backend"
 python -m ipykernel install --user --name envParticle --display-name "envParticle"
 ```
 
+## Download dataset, if not running jupyter notebook
 ### Download small datasets (for development)
 ```
 wget http://www.stanford.edu/~kterao/public_data/v0.1.0/2d/classification/five_particles/practice_train_5k.root -O InputFiles/classification_train_5k.root
